@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import './global.css';
+import TopNav from '../components/navbar/navbar';
 
 export const metadata: Metadata = {
   title: 'Kentobeans Live',
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <TopNav />
         <div className="container mx-auto">{children}</div>
       </body>
     </html>
