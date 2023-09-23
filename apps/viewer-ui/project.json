@@ -9,7 +9,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/viewer-ui"
+        "outputPath": "dist/apps/viewer-ui",
+        "postcssConfig": "apps/viewer-ui/postcss.config.js"
       },
       "configurations": {
         "development": {
