@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --kento-dark-blue: #0e1336;
+  --kento-light-blue: #4376bb;
+  --kento-purple: #523877;
+  --kento-orange: #f57e20;
+  --kento-green: #5c9240;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Kentobeans brand colors */
+  --color-kento-dark-blue: var(--kento-dark-blue);
+  --color-kento-light-blue: var(--kento-light-blue);
+  --color-kento-purple: var(--kento-purple);
+  --color-kento-orange: var(--kento-orange);
+  --color-kento-green: var(--kento-green);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
