@@ -1,9 +1,4 @@
-export interface QueueStatCardProps {
-  title: string;
-  value: string | number;
-  subtitle?: string;
-  color?: string;
-}
+import type { QueueStatCardProps } from '@/types/components';
 
 export default function QueueStatCard({
   title,

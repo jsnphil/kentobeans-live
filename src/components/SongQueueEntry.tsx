@@ -1,23 +1,16 @@
+'use client';
 import { formatDuration } from '@/utils/utils';
-import { ArrowUp, Shuffle, Star } from 'lucide-react';
+import { Shuffle, Star } from 'lucide-react';
+
+import type { Song } from '@/types';
 
 export interface SongQueueEntryProps {
-  rank: number;
-  title: string;
-  requestedBy: string;
-  duration: number;
-  bumped?: boolean;
-  winner?: boolean;
+  songRequest: Song;
+  rank?: number;
 }
 
-export function SongQueueEntry({
-  rank,
-  title,
-  requestedBy,
-  duration,
-  bumped,
-  winner
-}: SongQueueEntryProps) {
+export function SongQueueEntry({ songRequest, rank }: SongQueueEntryProps) {
+  const { title, id, requestedBy, duration, bumped, winner } = songRequest;
   return (
     <div className='flex items-center gap-4 p-4 hover:bg-slate-800/30 transition'>
       {bumped ? (
@@ -31,7 +24,15 @@ export function SongQueueEntry({
         <div className='w-4' />
       )}
       <div className='flex-1'>
-        <p className='font-semibold text-sm'>{title}</p>
+        <p className='font-semibold text-sm'>
+          <a
+            href={`https://youtu.be/${id}`}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            {title}
+          </a>
+        </p>
         <p className='text-xs text-slate-500'>Requested by: {requestedBy}</p>
       </div>
 
