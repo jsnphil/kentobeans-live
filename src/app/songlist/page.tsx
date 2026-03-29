@@ -31,8 +31,12 @@ export default function SongListPage() {
             subtitle='This Session'
           />
 
-          <QueueStatCard title='Bean Bumps' value='3' />
-          <QueueStatCard title='Channel Point Bumps' value='3' />
+          <QueueStatCard title='Bean Bumps' value='3' subtitle='Available' />
+          <QueueStatCard
+            title='Channel Point Bumps'
+            value='3'
+            subtitle='Available'
+          />
 
           {/* <div className='grid grid-cols-2 gap-4 md:gap-6'>
             <QueueStatCard title='Bean Bumps' value='3' subtitle='Available' />
