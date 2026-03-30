@@ -1,19 +1,22 @@
 import type { QueueStatCardSkeletonProps } from '@/types/components';
+import { Card, Label, Text } from '@/components/ui';
 
 export default function QueueStatCardSkeleton({
   title,
   subtitle
 }: QueueStatCardSkeletonProps) {
   return (
-    <div className='bg-[#1a1a24] p-5 rounded-xl border border-slate-800 text-center'>
-      {/* Title */}
-      <p className='text-xs text-slate-500 uppercase font-semibold'>{title}</p>
+    <Card variant='dark' size='md' className='text-center'>
+      <Label>{title}</Label>
 
       {/* Value skeleton */}
-      <div className='h-9 bg-slate-600/50 rounded w-12 mx-auto animate-pulse my-1'></div>
+      <div className='h-9 bg-border-primary/50 rounded w-12 mx-auto loading-skeleton my-1' />
 
-      {/* Subtitle */}
-      {subtitle && <p className='text-xs text-slate-500'>{subtitle}</p>}
-    </div>
+      {subtitle && (
+        <Text size='xs' color='muted'>
+          {subtitle}
+        </Text>
+      )}
+    </Card>
   );
 }

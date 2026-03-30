@@ -1,4 +1,5 @@
 import type { QueueStatCardProps } from '@/types/components';
+import { Card, Label, Heading, Text } from '@/components/ui';
 
 export default function QueueStatCard({
   title,
@@ -7,10 +8,20 @@ export default function QueueStatCard({
   color = 'text-white'
 }: QueueStatCardProps) {
   return (
-    <div className='bg-[#1a1a24] p-5 rounded-xl border border-slate-800 text-center'>
-      <p className='text-xs text-slate-500 uppercase font-semibold'>{title}</p>
-      <p className={`text-3xl font-black my-1 ${color}`}>{value}</p>
-      {subtitle && <p className='text-xs text-slate-500'>{subtitle}</p>}
-    </div>
+    <Card variant='dark' size='md' className='text-center'>
+      <Label>{title}</Label>
+      <Heading
+        level={3}
+        align='center'
+        className={`my-1 text-3xl font-black ${color}`}
+      >
+        {value}
+      </Heading>
+      {subtitle && (
+        <Text size='xs' color='muted' align='center'>
+          {subtitle}
+        </Text>
+      )}
+    </Card>
   );
 }

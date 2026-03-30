@@ -11,17 +11,55 @@
 }
 
 @theme inline {
+  /* Base Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 
-  /* Kentobeans brand colors */
+  /* Typography */
+  --font-sans: var(--font-geist-sans), Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+
+  /* Brand Colors */
   --color-kento-dark-blue: var(--kento-dark-blue);
   --color-kento-light-blue: var(--kento-light-blue);
   --color-kento-purple: var(--kento-purple);
   --color-kento-orange: var(--kento-orange);
   --color-kento-green: var(--kento-green);
+
+  /* Semantic Colors */
+  --color-success: var(--kento-green);
+  --color-warning: var(--kento-orange);
+  --color-error: #ef4444;
+  --color-info: var(--kento-light-blue);
+
+  /* Surface Colors */
+  --color-surface-primary: #1a1a24;
+  --color-surface-secondary: #ffffff;
+  --color-surface-tertiary: #f8fafc;
+  --color-surface-quaternary: #f1f5f9;
+
+  /* Border Colors */
+  --color-border-primary: #334155;
+  --color-border-secondary: #64748b;
+  --color-border-light: #e2e8f0;
+
+  /* Text Colors */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #64748b;
+  --color-text-tertiary: #94a3b8;
+  --color-text-inverse: var(--kento-dark-blue);
+  --color-text-muted: #64748b;
+
+  /* Shadows for dark theme */
+  --shadow-dark-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-dark-md:
+    0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-dark-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+
+  /* Animations */
+  --animate-spin-slow: spin 3s linear infinite;
+  --animate-pulse-soft: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,6 +67,47 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+/* Utility Classes for Design System */
+.card-dark {
+  @apply bg-surface-primary rounded-xl border border-border-primary;
+}
+
+.card-light {
+  @apply bg-surface-secondary rounded-xl border border-border-light;
+}
+
+.card-elevated {
+  @apply bg-surface-primary rounded-xl border border-border-primary shadow-dark-md;
+}
+
+.card-interactive {
+  @apply transition-colors hover:border-border-secondary cursor-pointer;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-kento-light-blue via-kento-purple to-kento-orange bg-clip-text text-transparent;
+}
+
+.hero-gradient {
+  @apply bg-gradient-to-br from-kento-dark-blue via-kento-purple to-kento-light-blue;
+}
+
+.nav-item {
+  @apply px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-text-secondary hover:bg-kento-purple hover:text-kento-orange;
+}
+
+.nav-item-active {
+  @apply bg-kento-purple text-kento-orange;
+}
+
+.loading-skeleton {
+  @apply animate-pulse bg-border-primary rounded;
+}
+
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-kento-light-blue/50 focus:ring-offset-2;
 }
 
 body {
