@@ -87,7 +87,7 @@ export const designTokens = {
   // Typography Scale
   typography: {
     fontFamily: {
-      sans: ['var(--font-geist-sans)', 'Arial', 'sans-serif'],
+      sans: ['var(--font-maven-pro)', 'Arial', 'sans-serif'],
       mono: ['var(--font-geist-mono)', 'monospace']
     },
     fontSize: {

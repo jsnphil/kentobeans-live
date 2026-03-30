@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Maven_Pro, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Navigation from '../components/Navigation';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const mavenPro = Maven_Pro({
+  variable: '--font-maven-pro',
   subsets: ['latin']
 });
 
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${mavenPro.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <Navigation />
         <main className='flex-1'>{children}</main>

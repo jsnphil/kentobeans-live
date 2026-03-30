@@ -9,7 +9,7 @@ export function CurrentSong({ song }: { song?: Song }) {
       <Label className='mb-4'>Now Playing</Label>
 
       <Flex align='center' gap='lg'>
-        <div className='w-24 h-24 bg-gradient-to-br from-kento-purple to-black rounded-full flex items-center justify-center border-4 border-border-primary animate-spin-slow'>
+        <div className='w-24 h-24 bg-gradient-to-br from-kento-purple to-black rounded-full flex items-center justify-center border-4 border-border-primary'>
           <Play fill='white' />
         </div>
 
