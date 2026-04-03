@@ -1,3 +1,10 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
+export const metadata = {
+  title: 'Home | Kentobeans7'
+};
+
 export default function Home() {
   return (
     <div className='relative overflow-hidden'>
@@ -9,23 +16,34 @@ export default function Home() {
               Welcome to{' '}
               <span className='text-kento-orange'>Kentobeans Live</span>
             </h1>
+            <div className='flex justify-center mb-8'>
+              <Image
+                src='/logo.png'
+                alt='Kentobeans Live Hero Image'
+                width={400}
+                height={400}
+              />
+            </div>
             <p className='text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto'>
-              Your hub for live music streaming with Kentobeans7. Track song
-              requests, explore SOTN history, and join the community.
+              Drum grooves and good vibes!
             </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-              <a
+            <p>
+              Drum grooves and good vibes! Live on Tuesdays and Thursdays from 6
+              to 9pm Central.
+            </p>
+            <div className='flex flex-col sm:flex-row gap-4 justify-center py-3'>
+              <Link
                 href='/songlist'
                 className='bg-kento-orange hover:bg-kento-green text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200 text-lg'
               >
                 View Current Songlist
-              </a>
-              <a
+              </Link>
+              <Link
                 href='/commands'
                 className='border-2 border-white text-white hover:bg-white hover:text-kento-dark-blue font-bold py-3 px-8 rounded-lg transition-all duration-200 text-lg'
               >
                 Bot Commands
-              </a>
+              </Link>
             </div>
           </div>
         </div>
