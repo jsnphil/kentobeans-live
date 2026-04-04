@@ -36,10 +36,10 @@ export default function AboutPage() {
 
   return (
     <main className='min-h-screen bg-white text-slate-900 py-12 px-4'>
-      <div className='max-w-5xl mx-auto text-center'>
+      <div className='max-w-7xl mx-auto text-center'>
         {/* Header Section */}
         <section className='mb-10'>
-          <h1 className='text-4xl font-normal mb-4'>Kentobeans7</h1>
+          <h1 className='text-4xl font-bold mb-4'>Kentobeans7</h1>
           <p className='text-slate-500 text-lg'>
             Kentobeans7 is a music streamer and drummer from Nashville, TN.
           </p>
@@ -52,29 +52,53 @@ export default function AboutPage() {
           <div className='overflow-hidden rounded-lg shadow-sm'>
             {/* Desktop: side-by-side grid */}
             <div className='hidden md:grid md:grid-cols-2'>
-              <div className='bg-slate-100 text-slate-900 font-bold py-2 px-4'>Drums</div>
-              <div className='bg-slate-100 text-slate-900 font-bold py-2 px-4'>Streaming</div>
+              <div className='bg-slate-100 text-slate-900 font-bold py-2 px-4'>
+                Drums
+              </div>
+              <div className='bg-slate-100 text-slate-900 font-bold py-2 px-4'>
+                Streaming
+              </div>
               {equipment.map((item, index) => (
                 <>
-                  <div key={`drums-${index}`} className='py-1 px-4 text-sm md:text-base'>{item.drums}</div>
-                  <div key={`streaming-${index}`} className='py-1 px-4 text-sm md:text-base'>{item.streaming}</div>
+                  <div
+                    key={`drums-${index}`}
+                    className='py-1 px-4 text-sm md:text-base'
+                  >
+                    {item.drums}
+                  </div>
+                  <div
+                    key={`streaming-${index}`}
+                    className='py-1 px-4 text-sm md:text-base'
+                  >
+                    {item.streaming}
+                  </div>
                 </>
               ))}
             </div>
 
             {/* Mobile: stacked */}
             <div className='md:hidden'>
-              <div className='bg-slate-100 text-slate-900 font-bold py-2 px-4'>Drums</div>
+              <div className='bg-slate-100 text-slate-900 font-bold py-2 px-4'>
+                Drums
+              </div>
               <div className='mb-4'>
                 {equipment.map((item, index) => (
-                  <div key={index} className='py-1 px-4 text-sm'>{item.drums}</div>
+                  <div key={index} className='py-1 px-4 text-sm'>
+                    {item.drums}
+                  </div>
                 ))}
               </div>
-              <div className='bg-slate-100 text-slate-900 font-bold py-2 px-4'>Streaming</div>
+              <div className='bg-slate-100 text-slate-900 font-bold py-2 px-4'>
+                Streaming
+              </div>
               <div>
-                {equipment.filter(item => item.streaming).map((item, index) => (
-                  <div key={index} className='py-1 px-4 text-sm'>{item.streaming}</div>
-                ))}
+                {equipment
+                  .filter((item) => item.streaming)
+                  .map((item, index) => (
+                    <div key={index} className='py-1 px-4 text-sm'>
+                      {item.streaming}
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
@@ -95,9 +119,15 @@ export default function AboutPage() {
           <h3 className='text-3xl font-normal mb-10'>Powered by</h3>
 
           <div className='logos-grid'>
-
             {/* Left column */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.5rem' }}>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '2.5rem'
+              }}
+            >
               <a
                 href='https://aws.amazon.com/what-is-cloud-computing'
                 target='_blank'
@@ -143,7 +173,15 @@ export default function AboutPage() {
             </div>
 
             {/* Right column */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2.5rem' }}>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '2.5rem'
+              }}
+            >
               <a
                 href='https://nextjs.org/'
                 target='_blank'

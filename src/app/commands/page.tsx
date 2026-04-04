@@ -14,7 +14,7 @@ export const metadata = {
 export default function CommandsPage() {
   return (
     <div className='bg-white min-h-screen'>
-      <div className='max-w-6xl mx-auto px-6 py-16'>
+      <div className='max-w-7xl mx-auto px-6 py-16'>
         {/* You can add a Server-rendered Header here */}
         <header className='mb-12 text-center'>
           <h1 className='text-3xl font-bold text-slate-900'>

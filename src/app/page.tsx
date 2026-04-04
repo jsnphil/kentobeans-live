@@ -34,13 +34,13 @@ export default function Home() {
             <div className='flex flex-col sm:flex-row gap-4 justify-center py-3'>
               <Link
                 href='/songlist'
-                className='bg-kento-orange hover:bg-kento-green text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200 text-lg'
+                className='bg-kento-orange hover:bg-kento-green text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200 text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-kento-orange'
               >
                 View Current Songlist
               </Link>
               <Link
                 href='/commands'
-                className='border-2 border-white text-white hover:bg-white hover:text-kento-dark-blue font-bold py-3 px-8 rounded-lg transition-all duration-200 text-lg'
+                className='border-2 border-white text-white hover:bg-white hover:text-kento-dark-blue font-bold py-3 px-8 rounded-lg transition-all duration-200 text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white'
               >
                 Bot Commands
               </Link>
@@ -144,7 +144,7 @@ export default function Home() {
             href='https://twitch.tv/kentobeans7'
             target='_blank'
             rel='noopener noreferrer'
-            className='bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200 text-lg inline-flex items-center'
+            className='bg-kento-purple hover:bg-kento-purple/80 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200 text-lg inline-flex items-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-kento-purple'
           >
             <svg
               className='w-5 h-5 mr-2'
