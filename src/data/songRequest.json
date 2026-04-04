@@ -1,0 +1,47 @@
+[
+  {
+    "command": "sr [link]",
+    "description": "Requests a song.  Songs must be from YouTube and must include a link",
+    "aliases": ["songrequest", "request"]
+  },
+  {
+    "command": "sr?",
+    "description": "Displays song request help information in chat",
+    "aliases": ["songrequest?", "request?"]
+  },
+  {
+    "command": "sl",
+    "description": "Displays a link to the song request list",
+    "aliases": ["songlist"]
+  },
+  {
+    "command": "edit [link]",
+    "description": "Changes your request in the queue to the new song"
+  },
+  {
+    "command": "wrongsong",
+    "description": "Removes your song from the queue",
+    "aliases": ["removesong"]
+  },
+  {
+    "command": "songcmds",
+    "description": "Lists all the song request commands in chat"
+  },
+  {
+    "command": "beanbump",
+    "description": "Bumps your song up in the queue (Limit 3 per stream).  Costs 300 beans"
+  },
+  {
+    "command": "bump?",
+    "description": "Displays all the ways you can bump your request"
+  },
+  {
+    "command": "bumps",
+    "description": "Displays the total number of bumps currently in the queue"
+  },
+  {
+    "command": "rules",
+    "description": "Displays the song request rules",
+    "aliases": ["songrules"]
+  }
+]
