@@ -5,9 +5,7 @@ import { Info } from 'lucide-react';
 
 interface Command {
   command?: string;
-  Command?: string;
   description?: string;
-  Description?: string;
   aliases?: string[];
 }
 
