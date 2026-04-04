@@ -3,9 +3,17 @@ import soundEffectsData from '@/data/soundEffects.json';
 import rewardRedemptionsData from '@/data/rewardRedemptions.json';
 import otherCommandsData from '@/data/otherCommands.json';
 
+/** Raw shape of each entry in the command JSON files. */
+interface RawCommand {
+  command: string;
+  description: string;
+  aliases?: string[];
+}
+
 export type Command = {
   command: string;
   description: string;
+  aliases?: string[];
 };
 
 export type CommandCategory =
@@ -16,28 +24,29 @@ export type CommandCategory =
 
 export type CommandCatalog = Record<CommandCategory, Command[]>;
 
-/** Normalise a raw JSON entry — handles both camelCase and PascalCase keys. */
-function normalise(raw: Record<string, string>): Command {
+/** Normalise a raw JSON entry into a Command. */
+function normalise(raw: RawCommand): Command {
   return {
-    command: raw.command ?? raw.Command ?? '',
-    description: raw.description ?? raw.Description ?? ''
+    command: raw.command,
+    description: raw.description,
+    ...(raw.aliases ? { aliases: raw.aliases } : {})
   };
 }
 
 export function getSongRequestCommands(): Command[] {
-  return (songRequestData as Record<string, string>[]).map(normalise);
+  return (songRequestData as RawCommand[]).map(normalise);
 }
 
 export function getSoundEffectsCommands(): Command[] {
-  return (soundEffectsData as Record<string, string>[]).map(normalise);
+  return (soundEffectsData as RawCommand[]).map(normalise);
 }
 
 export function getRewardRedemptionCommands(): Command[] {
-  return (rewardRedemptionsData as Record<string, string>[]).map(normalise);
+  return (rewardRedemptionsData as RawCommand[]).map(normalise);
 }
 
 export function getOtherCommands(): Command[] {
-  return (otherCommandsData as Record<string, string>[]).map(normalise);
+  return (otherCommandsData as RawCommand[]).map(normalise);
 }
 
 /** Returns all commands grouped by category. */
