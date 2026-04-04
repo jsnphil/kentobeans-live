@@ -1,5 +1,5 @@
 import { formatDuration } from '@/utils/utils';
-import { ArrowUp, Shuffle, Star } from 'lucide-react';
+import { Shuffle, Star } from 'lucide-react';
 
 export interface SongQueueEntryProps {
   rank: number;
