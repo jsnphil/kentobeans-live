@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+html {
+  overflow-y: scroll;
+}
+
+.logos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  .logos-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

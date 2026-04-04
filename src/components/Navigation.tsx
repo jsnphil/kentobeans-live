@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,19 +12,18 @@ const Navigation = () => {
     { href: '/commands', label: 'Commands' },
     { href: '/songlist', label: 'Songlist' },
     { href: '/song-history', label: 'Song History' },
-    { href: '/about', label: 'About' },
-    { href: '/shop', label: 'Shop' },
-    { href: '/request-rules', label: 'Request Rules' },
-    {
-      href: '/song-of-the-night',
-      label: 'SOTN',
-      submenu: [
-        { href: '/song-of-the-night/standings', label: 'Standings' },
-        { href: '/song-of-the-night/users', label: 'Users' },
-        { href: '/song-of-the-night/songs', label: 'Songs' },
-        { href: '/sotn-playlists', label: 'Playlists' }
-      ]
-    }
+    { href: '/about', label: 'About' }
+    // {
+    //   href: '/song-of-the-night',
+    //   label: 'SOTN',
+    //   disabled: true,
+    //   submenu: [
+    //     { href: '/song-of-the-night/standings', label: 'Standings' },
+    //     { href: '/song-of-the-night/users', label: 'Users' },
+    //     { href: '/song-of-the-night/songs', label: 'Songs' },
+    //     { href: '/sotn-playlists', label: 'Playlists' }
+    //   ]
+    // }
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -38,7 +38,13 @@ const Navigation = () => {
               href='/'
               className='text-kento-orange font-bold text-xl hover:text-kento-green transition-colors duration-200'
             >
-              Kentobeans Live
+              <Image
+                src='/logo.png'
+                alt='Kentobeans Live Logo'
+                width={32}
+                height={32}
+                className='inline-block ml-2'
+              />
             </Link>
           </div>
 
