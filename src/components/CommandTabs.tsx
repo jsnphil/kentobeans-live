@@ -14,14 +14,14 @@ interface Command {
 interface CommandTabsProps {
   songRequestCmds: Command[];
   soundEffectCmds: Command[];
-  rewardRedepemtionCmds: Command[];
+  rewardRedemptionCmds: Command[];
   otherCmds: Command[];
 }
 
 export default function CommandTabs({
   songRequestCmds,
   soundEffectCmds,
-  rewardRedepemtionCmds,
+  rewardRedemptionCmds,
   otherCmds
 }: CommandTabsProps) {
   const [commandState, setCommandState] = useState('songRequestCmds');
@@ -30,9 +30,9 @@ export default function CommandTabs({
     { id: 'songRequestCmds', label: 'Song Requests', data: songRequestCmds },
     { id: 'soundEffectCmds', label: 'Sound Effects', data: soundEffectCmds },
     {
-      id: 'rewardRedepemtionCmds',
+      id: 'rewardRedemptionCmds',
       label: 'Reward Redemption',
-      data: rewardRedepemtionCmds
+      data: rewardRedemptionCmds
     },
     { id: 'otherCmds', label: 'Other', data: otherCmds }
   ];

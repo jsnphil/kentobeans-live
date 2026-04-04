@@ -29,7 +29,7 @@ export default function CommandsPage() {
         <CommandTabs
           songRequestCmds={SongRequestCommands}
           soundEffectCmds={SoundEffectsCommands}
-          rewardRedepemtionCmds={RewardRedemptionCommands}
+          rewardRedemptionCmds={RewardRedemptionCommands}
           otherCmds={OtherCommands}
         />
       </div>
