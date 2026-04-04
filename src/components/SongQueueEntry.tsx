@@ -23,10 +23,10 @@ export function SongQueueEntry({
       {bumped ? (
         <>
           <span className='text-slate-600 font-mono w-8'>{rank}</span>
-          <Star size={16} className='text-green-500' />
+          <Star size={16} className='text-kento-green' />
         </>
       ) : winner ? (
-        <Shuffle size={16} className='text-yellow-400' />
+        <Shuffle size={16} className='text-kento-orange' />
       ) : (
         <div className='w-4' />
       )}

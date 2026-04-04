@@ -1,6 +1,7 @@
 'use client';
 import QueueStatCard from '@/components/QueueStatCard';
-import { Play, Shuffle, Star, Ticket } from 'lucide-react';
+import QueueLegend from '@/components/QueueLegend';
+import { Play } from 'lucide-react';
 import { ListMusic } from 'lucide-react';
 import { History } from 'lucide-react';
 import { SongQueueEntry } from '@/components/SongQueueEntry';
@@ -54,12 +55,12 @@ export default function SongListPage() {
           {/* Left Column: Now Playing & Queue */}
           <div className='lg:col-span-2 space-y-6'>
             {/* Now Playing Hero */}
-            <div className='bg-[#1a1a24] rounded-xl p-6 border border-slate-800'>
+            <div className='bg-kento-card-dark rounded-xl p-6 border border-slate-800'>
               <h3 className='text-sm uppercase tracking-wider text-slate-500 mb-4'>
                 Now Playing
               </h3>
               <div className='flex items-center gap-6'>
-                <div className='w-24 h-24 bg-gradient-to-br from-purple-900 to-black rounded-full flex items-center justify-center border-4 border-slate-800 animate-spin-slow'>
+                <div className='w-24 h-24 bg-gradient-to-br from-kento-purple to-kento-dark-blue rounded-full flex items-center justify-center border-4 border-slate-800 animate-spin-slow'>
                   <Play fill='white' />
                 </div>
                 <div className='flex-1'>
@@ -76,7 +77,7 @@ export default function SongListPage() {
               </div>
             </div>
             {/* Request Queue */}
-            <div className='bg-[#1a1a24] rounded-xl border border-slate-800'>
+            <div className='bg-kento-card-dark rounded-xl border border-slate-800'>
               <div className='p-4 border-b border-slate-800 flex justify-between items-center'>
                 <h3 className='font-bold flex items-center gap-2'>
                   <ListMusic size={18} /> Request Queue
@@ -114,21 +115,7 @@ export default function SongListPage() {
                   duration={195}
                 />
               </div>
-              <div className='flex items-center gap-6 px-6 py-3 bg-[#13131b] rounded-b-xl border-t border-slate-800 text-[10px] uppercase tracking-wider font-bold text-slate-500'>
-                <div className='flex items-center gap-2'>
-                  <Star size={14} className='text-green-500' />
-                  <span>Bumped</span>
-                </div>
-                <div className='flex items-center gap-2'>
-                  <Shuffle size={14} className='text-yellow-400' />
-                  <span>Shuffle Winner</span>
-                </div>
-                <div className='flex items-center gap-2'>
-                  {/* <div className='rotate-45 border-t-2 border-r-2 border-slate-500 w-2 h-2 mr-1'></div> */}
-                  <Ticket size={14} className='text-purple-400' />
-                  <span>Shuffle Entrant</span>
-                </div>
-              </div>
+              <QueueLegend />
             </div>
           </div>
 
@@ -146,7 +133,7 @@ export default function SongListPage() {
               </div>
             </div> */}
 
-            <div className='bg-[#1a1a24] rounded-xl p-4 border border-slate-800'>
+            <div className='bg-kento-card-dark rounded-xl p-4 border border-slate-800'>
               <h3 className='text-sm font-bold mb-4 flex items-center gap-2'>
                 <History size={16} /> History
               </h3>

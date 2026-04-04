@@ -12,7 +12,7 @@ export default function QueueStatCard({
   color = 'text-white'
 }: QueueStatCardProps) {
   return (
-    <div className='bg-[#1a1a24] p-5 rounded-xl border border-slate-800 text-center'>
+    <div className='bg-kento-card-dark p-6 rounded-xl border border-slate-800 text-center'>
       <p className='text-xs text-slate-500 uppercase font-semibold'>{title}</p>
       <p className={`text-3xl font-black my-1 ${color}`}>{value}</p>
       {subtitle && <p className='text-xs text-slate-500'>{subtitle}</p>}

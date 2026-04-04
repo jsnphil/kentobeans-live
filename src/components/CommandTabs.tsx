@@ -44,7 +44,7 @@ export default function CommandTabs({
         <select
           value={commandState}
           onChange={(e) => setCommandState(e.target.value)}
-          className='w-full p-3 bg-white border border-gray-300 rounded-lg shadow-sm outline-none focus:ring-2 focus:ring-indigo-500'
+          className='w-full p-3 bg-white border border-gray-300 rounded-lg shadow-sm outline-none focus:ring-2 focus:ring-kento-light-blue'
         >
           {tabs.map((tab) => (
             <option key={tab.id} value={tab.id}>
@@ -62,10 +62,10 @@ export default function CommandTabs({
               type='button'
               key={tab.id}
               onClick={() => setCommandState(tab.id)}
-              className={`px-8 py-2 text-sm font-medium transition-colors border-r last:border-r-0 border-slate-900
+              className={`px-8 py-2 text-sm font-medium transition-colors border-r last:border-r-0 border-slate-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-kento-light-blue
                 ${
                   commandState === tab.id
-                    ? 'bg-[#1a237e] text-white'
+                    ? 'bg-kento-card-active text-white'
                     : 'bg-white text-slate-900 hover:bg-gray-50'
                 }`}
             >
@@ -81,8 +81,8 @@ export default function CommandTabs({
           <table className='w-full text-left border-collapse table-fixed'>
             <thead>
               <tr className='text-gray-500 uppercase text-xs tracking-wider border-b'>
-                <th className='py-4 px-2 w-1/4 font-semibold'>Command</th>
-                <th className='py-4 px-2 w-3/4 font-semibold'>Description</th>
+                <th className='py-4 px-4 w-1/4 font-semibold'>Command</th>
+                <th className='py-4 px-4 w-3/4 font-semibold'>Description</th>
               </tr>
             </thead>
             <tbody className='divide-y divide-gray-100'>
@@ -91,10 +91,10 @@ export default function CommandTabs({
                   key={index}
                   className='hover:bg-gray-50/50 transition-colors'
                 >
-                  <td className='py-4 px-2 font-mono text-sm font-bold text-slate-700 overflow-hidden truncate'>
+                  <td className='py-4 px-4 font-mono text-sm font-bold text-slate-700 overflow-hidden truncate'>
                     !{cmd.command}
                   </td>
-                  <td className='py-4 px-2 text-sm text-slate-600 leading-relaxed overflow-hidden'>
+                  <td className='py-4 px-4 text-sm text-slate-600 leading-relaxed overflow-hidden'>
                     {cmd.description}
                     {cmd.aliases && cmd.aliases.length > 0 && (
                       <div className='mt-1 text-xs text-slate-400'>
