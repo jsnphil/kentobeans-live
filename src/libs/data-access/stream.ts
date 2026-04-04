@@ -132,7 +132,7 @@ export async function getStreamInformation(): Promise<StreamInfo> {
   console.log('Stream Info:', streamInfo);
 
   return {
-    status: 'CLOSED',
+    status: 'OPEN',
     currentSong: {
       id: 'ojydNb3Lrrs',
       title: 'Warriors',
@@ -143,8 +143,8 @@ export async function getStreamInformation(): Promise<StreamInfo> {
     ...streamInfo,
     // songs: [],
     bumpedSongs: mockQueue.filter((song) => song.bumped).length,
-    beanBumpsAvailable: 3,
-    channelPointBumpsAvailable: 3,
+    beanBumpsAvailable: 1,
+    channelPointBumpsAvailable: 0,
     songsPlayed: mockSongsPlayed
   } as StreamInfo;
 }

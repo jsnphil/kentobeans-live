@@ -22,7 +22,7 @@ export function QueueStatus({
       <QueueStatCard
         title='Queue Status'
         value={status}
-        subtitle={status === 'OPEN' ? 'Accepting requests' : 'Closed'}
+        subtitle={status === 'OPEN' ? 'Accepting requests' : ''}
         color={status === 'OPEN' ? 'text-green-500' : 'text-red-500'}
       />
       <QueueStatCard
@@ -33,18 +33,18 @@ export function QueueStatus({
       <QueueStatCard
         title='Songs Played'
         value={songsPlayed}
-        subtitle='This Session'
+        subtitle='This Stream'
       />
 
       <QueueStatCard
         title='Bean Bumps'
-        value={beanBumps}
-        subtitle='Available'
+        value={beanBumps > 0 ? beanBumps : 'Sold Out'}
+        subtitle={beanBumps > 0 ? 'Available' : ''}
       />
       <QueueStatCard
         title='Channel Point Bumps'
-        value={channelPointBumps}
-        subtitle='Available'
+        value={channelPointBumps > 0 ? channelPointBumps : 'Sold Out'}
+        subtitle={channelPointBumps > 0 ? 'Available' : ''}
       />
     </section>
   );

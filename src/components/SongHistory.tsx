@@ -1,6 +1,7 @@
 'use client';
 import { Song } from '@/types';
 import { History } from 'lucide-react';
+import { Heading } from '@/components/ui';
 
 export interface SongHistoryProps {
   songs: Song[];
@@ -13,17 +14,19 @@ export interface PlayedSong {
 
 export function SongHistory({ songs }: SongHistoryProps) {
   return (
-    <>
-      <h3 className='text-sm font-bold mb-4 flex items-center gap-2'>
-        <History size={16} /> Previously played
-      </h3>
-      <div className='text-xs space-y-3 text-slate-400'>
+    <div className='bg-surface-primary rounded-xl border border-border-primary overflow-hidden'>
+      <div className='px-4 py-3 border-b border-border-primary'>
+        <Heading level={5} className='flex items-center gap-2'>
+          <History size={16} /> Previously played
+        </Heading>
+      </div>
+      <div className='divide-y divide-kento-dark-blue text-text-secondary'>
         {songs.map((song, index) => (
           <div
             key={index}
-            className='flex justify-between hover:bg-slate-800/30 transition'
+            className='flex justify-between items-center px-4 py-2 text-xs bg-background hover:bg-kento-light-blue hover:text-text-primary transition'
           >
-            <span>
+            <span className='truncate pr-2'>
               <a
                 href={`https://youtu.be/${song.id}`}
                 target='_blank'
@@ -32,10 +35,10 @@ export function SongHistory({ songs }: SongHistoryProps) {
                 {song.title}
               </a>
             </span>
-            <span>{song.requestedBy}</span>
+            <span className='shrink-0'>{song.requestedBy}</span>
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }

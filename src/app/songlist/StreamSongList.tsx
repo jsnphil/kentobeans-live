@@ -2,11 +2,14 @@ import { QueueStatus } from '@/components/QueueStatus';
 import { SongHistory } from '@/components/SongHistory';
 import { SongQueue } from '@/components/SongQueue';
 import { getStreamInformation } from '@/libs/data-access/stream';
+import { ACCEPT_RULES_COOKIE_NAME } from '@/utils/constants';
+import { cookies } from 'next/headers';
 
 export async function StreamSongList() {
   const streamInfo = await getStreamInformation();
+  const rulesCookie = (await cookies()).get(ACCEPT_RULES_COOKIE_NAME);
 
-  //   console.log('Stream Info in Component:', JSON.stringify(streamInfo, null, 2));
+  console.log('Stream Info in Component:', JSON.stringify(streamInfo, null, 2));
 
   return (
     <>
@@ -26,14 +29,13 @@ export async function StreamSongList() {
           <SongQueue
             songs={streamInfo.songs}
             currentSong={streamInfo.currentSong}
+            showRules={!rulesCookie}
           />
         </div>
 
         {/* Right Column: Contender & History */}
         <div className='space-y-6'>
-          <div className='bg-[#1a1a24] rounded-xl p-4 border border-slate-800'>
-            <SongHistory songs={streamInfo.songsPlayed} />
-          </div>
+          <SongHistory songs={streamInfo.songsPlayed} />
 
           {/* <div className='bg-[#1a1a24] rounded-xl p-4 border border-blue-900/30'>
             <h3 className='text-sm font-bold text-blue-400 mb-4'>

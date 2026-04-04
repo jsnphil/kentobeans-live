@@ -1,4 +1,6 @@
 import QueueStatCardSkeleton from '@/components/QueueStatCardSkeleton';
+import { SongHistory } from '@/components/SongHistory';
+import { SongQueue } from '@/components/SongQueue';
 
 export default function Loading() {
   return (
@@ -9,13 +11,33 @@ export default function Loading() {
           <QueueStatCardSkeleton title='Queue Status' />
           <QueueStatCardSkeleton title='Songs in Queue' />
           <QueueStatCardSkeleton title='Songs Played' />
-          <QueueStatCardSkeleton title='Bean Bumps' subtitle='Available' />
+          <QueueStatCardSkeleton title='Bean Bumps' />
 
-          <QueueStatCardSkeleton
-            title='Channel Point Bumps'
-            subtitle='Available'
-          />
+          <QueueStatCardSkeleton title='Channel Point Bumps' />
         </section>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
+          <div className='lg:col-span-2 space-y-6'>
+            <SongQueue songs={[]} currentSong={undefined} showRules={false} />
+          </div>
+          {/* Right Column: Contender & History */}
+          <div className='space-y-6'>
+            <div className='space-y-6'>
+              <SongHistory songs={[]} />
+            </div>
+
+            {/* <div className='bg-[#1a1a24] rounded-xl p-4 border border-blue-900/30'>
+                      <h3 className='text-sm font-bold text-blue-400 mb-4'>
+                        Contender for Song of the Night
+                      </h3>
+                      <div className='space-y-3'>
+                        <div className='p-3 bg-blue-900/10 rounded-lg border border-blue-900/20'>
+                          <p className='font-bold'>1. Nebula Grooves</p>
+                          <p className='text-xs text-slate-400'>14 votes</p>
+                        </div>
+                      </div>
+                    </div> */}
+          </div>
+        </div>
       </main>
     </>
   );

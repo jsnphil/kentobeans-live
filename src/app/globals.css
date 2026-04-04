@@ -4,6 +4,16 @@ html {
   overflow-y: scroll;
 }
 
+@media (min-width: 1200px) {
+  body {
+    background-image: url("/pattern-l.png"), url("/pattern-r.png");
+    background-position:
+      left top,
+      right top;
+    background-repeat: repeat-y, repeat-y;
+  }
+}
+
 .logos-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -18,7 +28,7 @@ html {
 }
 
 :root {
-  --background: #ffffff;
+  --background: #cccccc;
   --foreground: #171717;
   --kento-dark-blue: #0e1336;
   --kento-light-blue: #4376bb;
@@ -27,6 +37,32 @@ html {
   --kento-green: #5c9240;
   --kento-card-dark: #1a1a24;
   --kento-card-active: #1a237e;
+  --kento-grey: #cccccc;
+
+  /* Surface Colors */
+  --surface-primary: var(--kento-dark-blue);
+  --surface-secondary: #ffffff;
+  --surface-tertiary: #f8fafc;
+  --surface-quaternary: #f1f5f9;
+
+  /* Border Colors */
+  --border-primary: #334155;
+  --border-secondary: #64748b;
+  --border-light: #e2e8f0;
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #64748b;
+  --text-tertiary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #0e1336;
+
+  /* Shadows */
+  --kento-shadow-dark-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --kento-shadow-dark-md:
+    0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --kento-shadow-dark-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
 }
 
 @theme inline {
@@ -48,13 +84,38 @@ html {
   --color-kento-green: var(--kento-green);
   --color-kento-card-dark: var(--kento-card-dark);
   --color-kento-card-active: var(--kento-card-active);
+  --color-kento-grey: var(--kento-grey);
+
+  /* Surface Colors */
+  --color-surface-primary: var(--surface-primary);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-surface-tertiary: var(--surface-tertiary);
+  --color-surface-quaternary: var(--surface-quaternary);
+
+  /* Border Colors */
+  --color-border-primary: var(--border-primary);
+  --color-border-secondary: var(--border-secondary);
+  --color-border-light: var(--border-light);
+
+  /* Text Colors */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+
+  /* Shadows */
+  --shadow-dark-sm: var(--kento-shadow-dark-sm);
+  --shadow-dark-md: var(--kento-shadow-dark-md);
+  --shadow-dark-lg: var(--kento-shadow-dark-lg);
+
   --animate-spin-slow: spin-slow 3s linear infinite;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #cccccc;
+    --foreground: #171717;
   }
 }
 

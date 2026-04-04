@@ -1,5 +1,5 @@
-import type { QueueStatCardSkeletonProps } from '@/types/components';
 import { Card, Label, Text } from '@/components/ui';
+import type { QueueStatCardSkeletonProps } from '@/types/components';
 
 export default function QueueStatCardSkeleton({
   title,
@@ -13,7 +13,7 @@ export default function QueueStatCardSkeleton({
       <div className='h-9 bg-border-primary/50 rounded w-12 mx-auto loading-skeleton my-1' />
 
       {subtitle && (
-        <Text size='xs' color='muted'>
+        <Text size='xs' color='muted' align='center'>
           {subtitle}
         </Text>
       )}
