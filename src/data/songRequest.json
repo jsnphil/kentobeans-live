@@ -6,7 +6,7 @@
   },
   {
     "command": "sr?",
-    "description": "Displays song request help infomration in chat",
+    "description": "Displays song request help information in chat",
     "aliases": ["songrequest?", "request?"]
   },
   {
