@@ -21,9 +21,9 @@ export function SongHistory({ songs }: SongHistoryProps) {
         </Heading>
       </div>
       <div className='divide-y divide-kento-dark-blue text-text-secondary'>
-        {songs.map((song, index) => (
+        {songs.map((song) => (
           <div
-            key={index}
+            key={song.id}
             className='flex justify-between items-center px-4 py-2 text-xs bg-background hover:bg-kento-light-blue hover:text-text-primary transition'
           >
             <span className='truncate pr-2'>
