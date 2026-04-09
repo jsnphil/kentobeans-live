@@ -35,6 +35,7 @@ export default function Modal({
           <h2 className='text-lg font-bold text-white'>{title}</h2>
           <button
             onClick={onClose}
+            aria-label='Close dialog'
             className='text-text-muted hover:text-white transition-colors p-1'
           >
             <X size={20} />
