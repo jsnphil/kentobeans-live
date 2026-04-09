@@ -33,8 +33,8 @@ export default function RequestRulesModal({
               songs like anime theme and/or well-known video game music
             </li>
             <li>
-              Please avoid requests that involve a lot double bass/kick drum
-              and/or metal songs.
+              Please avoid requests that involve a lot of double bass/kick
+              drum and/or metal songs.
             </li>
           </ul>
         </div>
