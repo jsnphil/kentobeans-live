@@ -1,3 +1,5 @@
+import { Card, Label, Text } from '@/components/ui';
+
 export interface QueueStatCardProps {
   title: string;
   value: string | number;
@@ -12,10 +14,14 @@ export default function QueueStatCard({
   color = 'text-white'
 }: QueueStatCardProps) {
   return (
-    <div className='bg-kento-card-dark p-6 rounded-xl border border-slate-800 text-center'>
-      <p className='text-xs text-slate-500 uppercase font-semibold'>{title}</p>
+    <Card variant='dark' size='lg' className='text-center'>
+      <Label>{title}</Label>
       <p className={`text-3xl font-black my-1 ${color}`}>{value}</p>
-      {subtitle && <p className='text-xs text-slate-500'>{subtitle}</p>}
-    </div>
+      {subtitle && (
+        <Text size='xs' color='muted' align='center'>
+          {subtitle}
+        </Text>
+      )}
+    </Card>
   );
 }

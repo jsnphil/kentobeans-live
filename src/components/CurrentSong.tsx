@@ -6,7 +6,7 @@ import { Card, Label, Heading, Text, Flex } from '@/components/ui';
 export function CurrentSong({ song }: { song?: Song }) {
   return (
     <Card variant='dark' size='lg'>
-      <Label className='mb-4'>Now Playing</Label>
+      <Label className='block mb-4'>Now Playing</Label>
 
       <Flex align='center' gap='lg'>
         <div className='w-24 h-24 bg-gradient-to-br from-kento-purple to-black rounded-full flex items-center justify-center border-4 border-border-primary'>
@@ -18,7 +18,18 @@ export function CurrentSong({ song }: { song?: Song }) {
 
           {song && (
             <>
-              <Heading level={2}>{song.title}</Heading>
+              <Heading level={2}>
+                <a
+                  href={`https://youtu.be/${song.id}`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label={`${song.title} (opens in new tab)`}
+                  className='focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kento-purple focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm'
+                >
+                  {song.title}
+                  <span className='sr-only'> (opens in new tab)</span>
+                </a>
+              </Heading>
               <Text color='secondary'>
                 Requested by:{' '}
                 <span className='text-kento-purple font-semibold'>
