@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { ListMusic, Shuffle, Star, Ticket } from 'lucide-react';
-import { CurrentSong } from './CurrentSong';
 import { SongQueueEntry } from './SongQueueEntry';
 import RequestRulesModal from './RequestRulesModal';
 import { Button, Heading } from '@/components/ui';
@@ -11,16 +10,33 @@ export interface SongQueueProps {
   currentSong?: Song;
   songs: Song[];
   showRules: boolean;
+  headerButton?: 'request-rules' | 'toggle-queue';
 }
 
-export function SongQueue({ currentSong, songs, showRules }: SongQueueProps) {
+async function setQueueStatus(open: boolean): Promise<void> {
+  // TODO: replace with WSS broadcast or server action once decided
+  console.log('[SongQueue] queue status changed:', open ? 'OPEN' : 'CLOSED');
+}
+
+export function SongQueue({
+  songs,
+  showRules,
+  headerButton = 'request-rules'
+}: SongQueueProps) {
   const [rulesOpen, setRulesOpen] = useState(false);
+  const [queueOpen, setQueueOpen] = useState(true);
 
   useEffect(() => {
     if (showRules) {
       setRulesOpen(true);
     }
   }, [showRules]);
+
+  const handleToggleQueue = async () => {
+    const next = !queueOpen;
+    setQueueOpen(next);
+    await setQueueStatus(next);
+  };
 
   return (
     <>
@@ -29,20 +45,41 @@ export function SongQueue({ currentSong, songs, showRules }: SongQueueProps) {
         onClose={() => setRulesOpen(false)}
       />
 
-      <CurrentSong song={currentSong} />
       {/* Request Queue */}
       <div className='bg-surface-primary rounded-xl border border-border-primary'>
         <div className='p-4 border-b border-border-primary flex justify-between items-center'>
           <Heading level={5} className='flex items-center gap-2'>
             <ListMusic size={18} /> Request Queue
           </Heading>
-          <Button
-            variant='secondary'
-            size='sm'
-            onClick={() => setRulesOpen(true)}
-          >
-            Request rules
-          </Button>
+          {headerButton === 'request-rules' && (
+            <Button
+              variant='secondary'
+              size='sm'
+              onClick={() => setRulesOpen(true)}
+            >
+              Request rules
+            </Button>
+          )}
+          {headerButton === 'toggle-queue' && (
+            <button
+              type='button'
+              role='switch'
+              aria-checked={queueOpen}
+              onClick={handleToggleQueue}
+              className='flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-kento-light-blue/50 focus:ring-offset-2 rounded-full'
+            >
+              <span className='text-xs font-semibold uppercase tracking-wider text-text-secondary'>
+                {queueOpen ? 'Open' : 'Closed'}
+              </span>
+              <div
+                className={`relative w-10 h-5 rounded-full transition-colors duration-200 ${queueOpen ? 'bg-kento-green' : 'bg-border-primary'}`}
+              >
+                <div
+                  className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform duration-200 ${queueOpen ? 'translate-x-5' : 'translate-x-0.5'}`}
+                />
+              </div>
+            </button>
+          )}
         </div>
         <div className='divide-y divide-kento-dark-blue'>
           {songs.map((song, index) => (
@@ -59,7 +96,6 @@ export function SongQueue({ currentSong, songs, showRules }: SongQueueProps) {
             <span>Shuffle Winner</span>
           </div>
           <div className='flex items-center gap-2'>
-            {/* <div className='rotate-45 border-t-2 border-r-2 border-slate-500 w-2 h-2 mr-1'></div> */}
             <Ticket size={14} className='text-kento-purple' />
             <span>Shuffle Entrant</span>
           </div>

@@ -1,3 +1,4 @@
+import { CurrentSong } from '@/components/CurrentSong';
 import QueueStatCardSkeleton from '@/components/QueueStatCardSkeleton';
 import { SongHistory } from '@/components/SongHistory';
 import { SongQueue } from '@/components/SongQueue';
@@ -12,12 +13,12 @@ export default function Loading() {
           <QueueStatCardSkeleton title='Songs in Queue' />
           <QueueStatCardSkeleton title='Songs Played' />
           <QueueStatCardSkeleton title='Bean Bumps' />
-
           <QueueStatCardSkeleton title='Channel Point Bumps' />
         </section>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
           <div className='lg:col-span-2 space-y-6'>
-            <SongQueue songs={[]} currentSong={undefined} showRules={false} />
+            <CurrentSong song={undefined} />
+            <SongQueue songs={[]} showRules={false} />
           </div>
           {/* Right Column: Contender & History */}
           <div className='space-y-6'>

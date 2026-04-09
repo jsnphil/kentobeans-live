@@ -56,8 +56,8 @@ export async function getStreamInformation(): Promise<StreamInfo> {
   // Mock song history with Stormlight and Mistborn characters
   const mockSongsPlayed: Song[] = [
     {
-      id: 'ojydNb3Lrrs',
-      title: 'Warriors',
+      id: 'nsqtNovzQ5w',
+      title: 'Better',
       requestedBy: 'KaladinStormblessed',
       duration: 226
     },
@@ -134,8 +134,8 @@ export async function getStreamInformation(): Promise<StreamInfo> {
   return {
     status: 'OPEN',
     currentSong: {
-      id: 'ojydNb3Lrrs',
-      title: 'Warriors',
+      id: 'C01nBm6vV5c',
+      title: "Don't Lose Sight",
       requestedBy: 'KaladinStormblessed',
       duration: 226,
       winner: true

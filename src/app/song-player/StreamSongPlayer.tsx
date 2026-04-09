@@ -1,14 +1,11 @@
-import { CurrentSong } from '@/components/CurrentSong';
 import { QueueStatus } from '@/components/QueueStatus';
 import { SongHistory } from '@/components/SongHistory';
 import { SongQueue } from '@/components/SongQueue';
 import { getStreamInformation } from '@/libs/data-access/stream';
-import { ACCEPT_RULES_COOKIE_NAME } from '@/utils/constants';
-import { cookies } from 'next/headers';
+import SongPlayer from './SongPlayer';
 
-export async function StreamSongList() {
+export async function StreamSongPlayer() {
   const streamInfo = await getStreamInformation();
-  const rulesCookie = (await cookies()).get(ACCEPT_RULES_COOKIE_NAME);
 
   console.log('Stream Info in Component:', JSON.stringify(streamInfo, null, 2));
 
@@ -27,11 +24,15 @@ export async function StreamSongList() {
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
         {/* Left Column: Now Playing & Queue */}
         <div className='lg:col-span-2 space-y-6'>
-          <CurrentSong song={streamInfo.currentSong} />
+          <SongPlayer
+            currentSong={streamInfo.currentSong}
+            queue={streamInfo.songs}
+          />
+
           <SongQueue
             songs={streamInfo.songs}
-            currentSong={streamInfo.currentSong}
-            showRules={!rulesCookie}
+            showRules={false}
+            headerButton='toggle-queue'
           />
         </div>
 
