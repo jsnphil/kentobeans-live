@@ -1,5 +1,5 @@
 'use client';
-import { Song } from '@/types';
+import type { Song } from '@/types';
 import { History } from 'lucide-react';
 import { Heading } from '@/components/ui';
 
