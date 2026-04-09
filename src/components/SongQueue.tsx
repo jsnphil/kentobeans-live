@@ -49,7 +49,7 @@ export function SongQueue({ currentSong, songs, showRules }: SongQueueProps) {
             <SongQueueEntry key={song.id} songRequest={song} rank={index + 1} />
           ))}
         </div>
-        <div className='flex items-center gap-6 px-6 py-3 bg-kento-dark-blue rounded-b-xl border-t border-border-primary text-xs uppercase tracking-wider font-bold text-text-muted'>
+        <div className='flex items-center gap-6 px-6 py-3 bg-kento-dark-blue rounded-b-xl border-t border-border-primary text-xs uppercase tracking-wider font-bold text-text-tertiary'>
           <div className='flex items-center gap-2'>
             <Star size={14} className='text-kento-green' />
             <span>Bumped</span>
