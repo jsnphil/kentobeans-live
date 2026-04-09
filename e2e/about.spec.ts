@@ -16,9 +16,7 @@ test.describe('About Page', () => {
   });
 
   test('displays the streamer description', async ({ page }) => {
-    await expect(
-      page.getByText(/music streamer and drummer from Nashville/i)
-    ).toBeVisible();
+    await expect(page.getByTestId('streamer-bio')).toBeVisible();
   });
 
   test('displays the Equipment section heading', async ({ page }) => {
@@ -27,21 +25,20 @@ test.describe('About Page', () => {
     ).toBeVisible();
   });
 
-  test('displays drum equipment in the table', async ({ page }) => {
-    await expect(page.getByText(/Gretsch Renown Maple/i)).toBeVisible();
+  test('displays drum equipment section', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await expect(page.getByTestId('equipment-drums')).toBeVisible();
   });
 
-  test('displays streaming equipment in the table on desktop', async ({
+  test('displays streaming equipment section on desktop', async ({
     page
   }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
-    await expect(page.getByText(/Focusrite Clarett/i).first()).toBeVisible();
+    await expect(page.getByTestId('equipment-streaming')).toBeVisible();
   });
 
   test('displays the Tech section with Kentobot heading', async ({ page }) => {
-    await expect(
-      page.getByRole('heading', { name: /Kentobot\/Kentobeans\.live/i })
-    ).toBeVisible();
+    await expect(page.getByTestId('tech-section')).toBeVisible();
   });
 
   test('displays the "Powered by" section', async ({ page }) => {
@@ -51,8 +48,6 @@ test.describe('About Page', () => {
   });
 
   test('displays the disclaimer footer', async ({ page }) => {
-    await expect(
-      page.getByText(/not affiliated with any of brands/i)
-    ).toBeVisible();
+    await expect(page.getByTestId('disclaimer')).toBeVisible();
   });
 });

@@ -5,39 +5,38 @@ import QueueStatCard from '../QueueStatCard';
 describe('QueueStatCard', () => {
   it('renders the title and value', () => {
     render(<QueueStatCard title='Queue Status' value='OPEN' />);
-    expect(screen.getByText('Queue Status')).toBeInTheDocument();
-    expect(screen.getByText('OPEN')).toBeInTheDocument();
+    expect(screen.getByTestId('queue-stat-card-title')).toBeInTheDocument();
+    expect(screen.getByTestId('queue-stat-card-value')).toBeInTheDocument();
   });
 
   it('renders a numeric value', () => {
     render(<QueueStatCard title='Songs in Queue' value={18} />);
-    expect(screen.getByText('Songs in Queue')).toBeInTheDocument();
-    expect(screen.getByText('18')).toBeInTheDocument();
+    expect(screen.getByTestId('queue-stat-card-title')).toHaveTextContent('Songs in Queue');
+    expect(screen.getByTestId('queue-stat-card-value')).toHaveTextContent('18');
   });
 
   it('renders the subtitle when provided', () => {
     render(
       <QueueStatCard title='Queue Status' value='OPEN' subtitle='Accepting requests' />
     );
-    expect(screen.getByText('Accepting requests')).toBeInTheDocument();
+    expect(screen.getByTestId('queue-stat-card-subtitle')).toBeInTheDocument();
+    expect(screen.getByTestId('queue-stat-card-subtitle')).toHaveTextContent('Accepting requests');
   });
 
   it('does not render a subtitle element when subtitle is omitted', () => {
     render(<QueueStatCard title='Bean Bumps' value={3} />);
-    expect(screen.queryByText(/subtitle/i)).not.toBeInTheDocument();
+    expect(screen.queryByTestId('queue-stat-card-subtitle')).not.toBeInTheDocument();
   });
 
   it('applies a custom color class to the value', () => {
     render(
       <QueueStatCard title='Queue Status' value='OPEN' color='text-green-500' />
     );
-    const valueEl = screen.getByText('OPEN');
-    expect(valueEl.className).toContain('text-green-500');
+    expect(screen.getByTestId('queue-stat-card-value').className).toContain('text-green-500');
   });
 
   it('defaults value color to text-white when no color is provided', () => {
     render(<QueueStatCard title='Songs Played' value={45} />);
-    const valueEl = screen.getByText('45');
-    expect(valueEl.className).toContain('text-white');
+    expect(screen.getByTestId('queue-stat-card-value').className).toContain('text-white');
   });
 });

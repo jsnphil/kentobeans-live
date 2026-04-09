@@ -38,7 +38,7 @@ export default function AboutPage() {
     <main className='min-h-screen bg-white text-slate-900 py-12 px-4'>
       <div className='max-w-7xl mx-auto text-center'>
         {/* Header Section */}
-        <section className='mb-10'>
+        <section className='mb-10' data-testid='streamer-bio'>
           <h1 className='text-4xl font-bold mb-4'>Kentobeans7</h1>
           <p className='text-slate-500 text-lg'>
             Kentobeans7 is a music streamer and drummer from Nashville, TN.
@@ -46,16 +46,16 @@ export default function AboutPage() {
         </section>
 
         {/* Equipment Section */}
-        <section className='mb-16'>
+        <section className='mb-16' data-testid='equipment-section'>
           <h2 className='text-3xl font-normal mb-6'>Equipment</h2>
 
           <div className='overflow-hidden rounded-lg shadow-sm'>
             {/* Desktop: side-by-side grid */}
-            <div className='hidden md:grid md:grid-cols-2'>
-              <div className='bg-slate-100 text-slate-900 font-bold py-2 px-4'>
+            <div className='hidden md:grid md:grid-cols-2' data-testid='equipment-desktop'>
+              <div className='bg-slate-100 text-slate-900 font-bold py-2 px-4' data-testid='equipment-drums'>
                 Drums
               </div>
-              <div className='bg-slate-100 text-slate-900 font-bold py-2 px-4'>
+              <div className='bg-slate-100 text-slate-900 font-bold py-2 px-4' data-testid='equipment-streaming'>
                 Streaming
               </div>
               {equipment.map((item, index) => (
@@ -107,7 +107,7 @@ export default function AboutPage() {
         <hr className='border-slate-200 mb-12' />
 
         {/* Tech Section */}
-        <section className='mb-12'>
+        <section className='mb-12' data-testid='tech-section'>
           <h2 className='text-4xl font-normal mb-4'>
             Kentobot/Kentobeans.live
           </h2>
@@ -215,7 +215,7 @@ export default function AboutPage() {
         </section>
 
         {/* Disclaimer */}
-        <footer className='mt-20 max-w-4xl mx-auto'>
+        <footer className='mt-20 max-w-4xl mx-auto' data-testid='disclaimer'>
           <p className='text-xs text-slate-500 leading-relaxed'>
             Kentobeans7, Kentobot, and Kentobeans.live is not affiliated with
             any of brands included on this page, and inclusion of a name and/or

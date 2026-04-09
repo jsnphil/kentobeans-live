@@ -49,7 +49,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className='hidden md:block'>
+          <div className='hidden md:block' data-testid='nav-desktop'>
             <div className='ml-10 flex items-baseline space-x-4'>
               {navigationItems.map((item) => (
                 <div key={item.href} className='relative group'>
@@ -164,7 +164,7 @@ const Navigation = () => {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className='md:hidden'>
+        <div className='md:hidden' data-testid='mobile-menu'>
           <div className='px-2 pt-2 pb-3 space-y-1 bg-kento-dark-blue border-t border-kento-light-blue'>
             {navigationItems.map((item) => (
               <div key={item.href}>

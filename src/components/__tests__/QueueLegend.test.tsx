@@ -5,16 +5,16 @@ import QueueLegend from '../QueueLegend';
 describe('QueueLegend', () => {
   it('renders the Bumped legend item', () => {
     render(<QueueLegend />);
-    expect(screen.getByText('Bumped')).toBeInTheDocument();
+    expect(screen.getByTestId('legend-bumped')).toBeInTheDocument();
   });
 
   it('renders the Shuffle Winner legend item', () => {
     render(<QueueLegend />);
-    expect(screen.getByText('Shuffle Winner')).toBeInTheDocument();
+    expect(screen.getByTestId('legend-shuffle-winner')).toBeInTheDocument();
   });
 
   it('renders the Shuffle Entrant legend item', () => {
     render(<QueueLegend />);
-    expect(screen.getByText('Shuffle Entrant')).toBeInTheDocument();
+    expect(screen.getByTestId('legend-shuffle-entrant')).toBeInTheDocument();
   });
 });

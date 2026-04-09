@@ -17,7 +17,7 @@ test.describe('Commands Page', () => {
 
   test('displays the page subtitle', async ({ page }) => {
     await expect(
-      page.getByText(/Interact with the stream using the commands below/i)
+      page.getByRole('heading', { name: /Channel Commands/i }).locator('..').getByText(/Interact with the stream using the commands below/i)
     ).toBeVisible();
   });
 
@@ -31,8 +31,8 @@ test.describe('Commands Page', () => {
 
   test('command table renders at least one row', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
-    const rows = page.locator('tbody tr');
-    await expect(rows.first()).toBeVisible();
+    const table = page.getByTestId('commands-table');
+    await expect(table.locator('tbody tr').first()).toBeVisible();
   });
 
   test('switching to Sound Effects tab shows sound effects commands', async ({
@@ -40,13 +40,13 @@ test.describe('Commands Page', () => {
   }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.getByRole('button', { name: /Sound Effects/i }).click();
-    await expect(page.getByText(/applause/i)).toBeVisible();
+    await expect(page.getByTestId('commands-table')).toContainText(/applause/i);
   });
 
   test('Sound Effects tab shows the cost info banner', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.getByRole('button', { name: /Sound Effects/i }).click();
-    await expect(page.getByText(/20 beans/i)).toBeVisible();
+    await expect(page.getByTestId('sound-effects-info')).toBeVisible();
   });
 
   test('switching to Reward Redemption tab shows its commands', async ({
@@ -54,24 +54,23 @@ test.describe('Commands Page', () => {
   }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.getByRole('button', { name: /Reward Redemption/i }).click();
-    await expect(page.getByText(/livelearn/i)).toBeVisible();
+    await expect(page.getByTestId('commands-table')).toContainText(/livelearn/i);
   });
 
   test('switching to Other tab shows other commands', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.getByRole('button', { name: 'Other' }).click();
-    await expect(page.getByText(/discord/i)).toBeVisible();
+    await expect(page.getByTestId('commands-table')).toContainText(/discord/i);
   });
 
   test('mobile dropdown is visible on small screens', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
-    const dropdown = page.locator('select');
-    await expect(dropdown).toBeVisible();
+    await expect(page.getByTestId('commands-dropdown')).toBeVisible();
   });
 
   test('mobile dropdown changes visible commands', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.locator('select').selectOption('soundEffectCmds');
-    await expect(page.getByText(/applause/i)).toBeVisible();
+    await page.getByTestId('commands-dropdown').selectOption('soundEffectCmds');
+    await expect(page.getByTestId('commands-table')).toContainText(/applause/i);
   });
 });

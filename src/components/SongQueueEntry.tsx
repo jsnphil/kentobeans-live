@@ -22,7 +22,7 @@ export function SongQueueEntry({
     <div className='flex items-center gap-4 p-4 hover:bg-slate-800/30 transition'>
       {bumped ? (
         <>
-          <span className='text-slate-600 font-mono w-8'>{rank}</span>
+          <span className='text-slate-600 font-mono w-8' data-testid='song-entry-rank'>{rank}</span>
           <Star size={16} className='text-kento-green' />
         </>
       ) : winner ? (
@@ -31,11 +31,11 @@ export function SongQueueEntry({
         <div className='w-4' />
       )}
       <div className='flex-1'>
-        <p className='font-semibold text-sm'>{title}</p>
-        <p className='text-xs text-slate-500'>Requested by: {requestedBy}</p>
+        <p className='font-semibold text-sm' data-testid='song-entry-title'>{title}</p>
+        <p className='text-xs text-slate-500' data-testid='song-entry-requester'>Requested by: {requestedBy}</p>
       </div>
 
-      <span className='text-xs text-slate-400'>{formatDuration(duration)}</span>
+      <span className='text-xs text-slate-400' data-testid='song-entry-duration'>{formatDuration(duration)}</span>
     </div>
   );
 }

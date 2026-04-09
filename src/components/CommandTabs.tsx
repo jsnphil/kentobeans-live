@@ -45,6 +45,7 @@ export default function CommandTabs({
           value={commandState}
           onChange={(e) => setCommandState(e.target.value)}
           className='w-full p-3 bg-white border border-gray-300 rounded-lg shadow-sm outline-none focus:ring-2 focus:ring-kento-light-blue'
+          data-testid='commands-dropdown'
         >
           {tabs.map((tab) => (
             <option key={tab.id} value={tab.id}>
@@ -78,7 +79,7 @@ export default function CommandTabs({
       {/* Table Content */}
       <div className='min-h-[400px]'>
         <div className='overflow-x-auto'>
-          <table className='w-full text-left border-collapse table-fixed'>
+          <table className='w-full text-left border-collapse table-fixed' data-testid='commands-table'>
             <thead>
               <tr className='text-gray-500 uppercase text-xs tracking-wider border-b'>
                 <th className='py-4 px-4 w-1/4 font-semibold'>Command</th>
@@ -110,7 +111,7 @@ export default function CommandTabs({
 
         {/* Conditional Footer Info */}
         {commandState === 'soundEffectCmds' && (
-          <div className='mt-8 p-4 bg-blue-50 rounded-lg flex items-center gap-3 text-blue-800 text-sm'>
+          <div className='mt-8 p-4 bg-blue-50 rounded-lg flex items-center gap-3 text-blue-800 text-sm' data-testid='sound-effects-info'>
             <Info />
             <p>
               All sound effects cost <strong>20 beans</strong> to redeem.

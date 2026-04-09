@@ -14,22 +14,25 @@ export default function SongListPage() {
       {/* Main Content */}
       <main className='flex-1 p-6 overflow-y-auto'>
         {/* Header Stats */}
-        <section className='grid grid-cols-1 md:grid-cols-5 gap-4 mb-8'>
+        <section className='grid grid-cols-1 md:grid-cols-5 gap-4 mb-8' data-testid='queue-stats'>
           <QueueStatCard
             title='Queue Status'
             value='OPEN'
             subtitle='Accepting requests'
             color='text-green-500'
+            testId='queue-status-card'
           />
           <QueueStatCard
             title='Songs in Queue'
             value='18'
             subtitle='5 Bumped'
+            testId='songs-in-queue-card'
           />
           <QueueStatCard
             title='Songs Played'
             value='45'
             subtitle='This Session'
+            testId='songs-played-card'
           />
 
           <QueueStatCard title='Bean Bumps' value='3' subtitle='Available' />
@@ -55,7 +58,7 @@ export default function SongListPage() {
           {/* Left Column: Now Playing & Queue */}
           <div className='lg:col-span-2 space-y-6'>
             {/* Now Playing Hero */}
-            <div className='bg-kento-card-dark rounded-xl p-6 border border-slate-800'>
+            <div className='bg-kento-card-dark rounded-xl p-6 border border-slate-800' data-testid='now-playing'>
               <h3 className='text-sm uppercase tracking-wider text-slate-500 mb-4'>
                 Now Playing
               </h3>
@@ -77,7 +80,7 @@ export default function SongListPage() {
               </div>
             </div>
             {/* Request Queue */}
-            <div className='bg-kento-card-dark rounded-xl border border-slate-800'>
+            <div className='bg-kento-card-dark rounded-xl border border-slate-800' data-testid='request-queue'>
               <div className='p-4 border-b border-slate-800 flex justify-between items-center'>
                 <h3 className='font-bold flex items-center gap-2'>
                   <ListMusic size={18} /> Request Queue
@@ -133,7 +136,7 @@ export default function SongListPage() {
               </div>
             </div> */}
 
-            <div className='bg-kento-card-dark rounded-xl p-4 border border-slate-800'>
+            <div className='bg-kento-card-dark rounded-xl p-4 border border-slate-800' data-testid='song-history'>
               <h3 className='text-sm font-bold mb-4 flex items-center gap-2'>
                 <History size={16} /> History
               </h3>
