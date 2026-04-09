@@ -19,8 +19,15 @@ export function CurrentSong({ song }: { song?: Song }) {
           {song && (
             <>
               <Heading level={2}>
-                <a href={`https://youtu.be/${song.id}`} target='_blank' rel='noopener noreferrer'>
+                <a
+                  href={`https://youtu.be/${song.id}`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label={`${song.title} (opens in new tab)`}
+                  className='focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kento-purple focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm'
+                >
                   {song.title}
+                  <span className='sr-only'> (opens in new tab)</span>
                 </a>
               </Heading>
               <Text color='secondary'>
