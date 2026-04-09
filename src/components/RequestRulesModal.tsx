@@ -48,7 +48,7 @@ export default function RequestRulesModal({
               $3.00 tip, by subscribing, or by gifting a sub.
             </li>
             <li>
-              Bump are limited to 1 free and 1 one paid per person per stream.
+              Bumps are limited to 1 free and 1 one paid per person per stream.
               Bean bumps are limited to once per week per user.
             </li>
           </ul>
